@@ -3,6 +3,14 @@ header {
 }
 
 footer img{
-    width: 30px;
-    height: 30px;
+    width: 2em;
+    height: 2em;
+}
+
+.titular {
+    background-image: url("bannerh1.jpg") !important;
+}
+
+header>a>img {
+    width: 2em;
 }
