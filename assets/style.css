@@ -14,3 +14,7 @@ footer img{
 header>a>img {
     width: 9rem;
 }
+
+.card-max-heigth {
+    height: 11.2rem;
+}
