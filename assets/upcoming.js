@@ -1,10 +1,10 @@
-// 3 - Capturando elemntos del DOM e insertando HTML con bucle (Fragment)
+// - Capturando elemntos del DOM e insertando HTML con bucle (Fragment)
 
 let contenedor = document.getElementById('cards-container');
 let fragment = document.createDocumentFragment()
 const fechaReferencia = new Date(data.currentDate)
 
-console.log(data.events);
+// console.log(data.events);
 
 for (let evento of data.events) {
   if (fechaReferencia < Date.parse(evento.date)) {
