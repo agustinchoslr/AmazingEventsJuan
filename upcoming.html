@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="./assets/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
-        <title>A - Upcoming Events</title>
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+    <title>A - Upcoming Events</title>
 </head>
 
 <body>
@@ -38,149 +38,29 @@
             </div>
 
             <form class="col-12 row row-cols-lg-auto g-3 d-flex justify-content-md-between align-items-center mt-2">
+                <!-- Category checks -->
 
-            <div class="col-5 justify-content-lg-start">
+                <div id="category-checks" class="col-5 justify-content-lg-start">
 
+                </div>
 
+                <!-- Fin Category checks -->
+                <!-- comienzo buscador -->
+                <div class="col-3 d-flex justify-content-end">
+                    <input id="search-input" type="search" class="form-control me-2" placeholder="Search..."
+                        aria-label="Search">
 
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="category1">
-                        <label class="form-check-label" for="category1">
-                            Category
-                        </label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="category2">
-                        <label class="form-check-label" for="category2">
-                            Category
-                        </label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="category3">
-                        <label class="form-check-label" for="category3">
-                            Category
-                        </label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="category4">
-                        <label class="form-check-label" for="category4">
-                            Category
-                        </label>
-                    </div>
-            </div>
-
-            <div class="col-3 d-flex justify-content-end">
-                <input type="search" class="form-control me-2" placeholder="Search..." aria-label="Search">
-
-                <button type="submit" class="btn btn-secondary">🔎</button>
-            </div>
+                    <button type="submit" class="btn btn-secondary">🔎</button>
+                    <!-- fin Buscador -->
+                </div>
         </div>
         </form>
         <div class="container col-12">
+            <!-- Contenedor de cards de eventos -->
 
             <div id="cards-container" class="d-flex justify-content-center align-items-top mt-5 mb-5 flex-wrap">
-                <!-- <div class="m-1">
-                    <div class="card" style="width: 15rem;">
-                        <img src="./assets/Cinema.jpg" class="card-img-top" alt="imagen 1">
-                        <div class="card-body">
-                            <div class="text-center">
-                                <h5 class="card-title">Event Name</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi aspernatur, expedita illum, amet repellendus quaerat.</p>
-                            </div>
-                            <div class="d-flex justify-content-end mt-4">
+                <!-- fin cards de eventos -->
 
-
-                                <a href="./details.html"
-                                        class="btn btn-primary justify-content-end">Details</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="m-1">
-                    <div class="card" style="width: 15rem;">
-                        <img src="./assets/Costume_Party.jpg" class="card-img-top" alt="imagen 1">
-                        <div class="card-body">
-                            <div class="text-center">
-                                <h5 class="card-title">Event Name</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi aspernatur, expedita illum, amet repellendus quaerat.</p>
-                            </div>
-                            <div class="d-flex  justify-content-end mt-4">
-                                <a href="./details.html"
-                                        class="btn btn-primary justify-content-end">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="m-1">
-                    <div class="card" style="width: 15rem;">
-                        <img src="./assets/Food_Fair.jpg" class="card-img-top" alt="imagen 1">
-                        <div class="card-body">
-                            <div class="text-center">
-                                <h5 class="card-title">Event Name</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi aspernatur, expedita illum, amet repellendus quaerat.</p>
-                            </div>
-                            <div class="d-flex  justify-content-end mt-4">
-                                <a href="./details.html"
-                                        class="btn btn-primary justify-content-end">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="m-1">
-                    <div class="card" style="width: 15rem;">
-                        <img src="./assets/Marathon.jpg" class="card-img-top" alt="imagen 1">
-                        <div class="card-body">
-                            <div class="text-center">
-                                <h5 class="card-title">Event Name</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi aspernatur, expedita illum, amet repellendus quaerat.</p>
-                            </div>
-                            <div class="d-flex  justify-content-end mt-4">
-                                <a href="./details.html"
-                                        class="btn btn-primary justify-content-end">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div class="m-1">
-                    <div class="card" style="width: 15rem;">
-                        <img src="./assets/Museum_Tour.jpg" class="card-img-top" alt="imagen 1">
-                        <div class="card-body">
-                            <div class="text-center">
-                                <h5 class="card-title">Event Name</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi aspernatur, expedita illum, amet repellendus quaerat.</p>
-                            </div>
-                            <div class="d-flex  justify-content-end mt-4">
-                                <a href="./details.html"
-                                        class="btn btn-primary justify-content-end">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="m-1">
-                    <div class="card" style="width: 15rem;">
-                        <img src="./assets/Music_Concert.jpg" class="card-img-top" alt="imagen 1">
-                        <div class="card-body">
-                            <div class="text-center">
-                                <h5 class="card-title">Event Name</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi aspernatur, expedita illum, amet repellendus quaerat.</p>
-                            </div>
-                            <div class="d-flex  justify-content-end mt-4">
-                                <a href="./details.html"
-                                        class="btn btn-primary">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
 
@@ -202,9 +82,9 @@
     <script src="./archivo.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>        
-        <script src="./assets/data.js"></script>
-        <script src="./assets/upcoming.js"></script>
+        crossorigin="anonymous"></script>
+    <script src="./assets/data.js"></script>
+    <script src="./assets/upcoming.js"></script>
 </body>
 
 </html>
