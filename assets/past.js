@@ -27,7 +27,7 @@ function mostrarPastEvents() {
            <p class="card-text">${evento.description}</p>
          </div>
          <div class="d-flex justify-content-end mt-4">
-           <a href="./details.html" class="btn btn-primary justify-content-end">Details</a>
+           <a href="./details.html?id=${evento._id}" class="btn btn-primary justify-content-end">Details</a>
          </div>
        </div>
      </div>
