@@ -1,3 +1,6 @@
+fetch('https://mindhub-xj03.onrender.com/api/amazing').then( response => response.json()).then(data => {
+  console.log(data.events)
+
 // - Capturando elemntos del DOM e insertando HTML con bucle (Fragment)
 
 let contenedor = document.getElementById('cards-container');
@@ -198,4 +201,4 @@ function actualizarCardsHtml(eventosFiltrados) {
 }
 });
 }
-
+});

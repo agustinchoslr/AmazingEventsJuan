@@ -1,10 +1,27 @@
-fetch('https://mindhub-xj03.onrender.com/api/amazing').then( response => response.json()).then(data => {
-  console.log(data.events)
-  
+// console.log(data.events);
+
+let contenedor = document.getElementById('cards-container');
+let fragment = document.createDocumentFragment();
 //aprendiendo método new Set y Array.from (autodidácticamente)
 const categorias = Array.from(new Set(data.events.map(iterador => iterador.category)));
 
-// Creando Checkboxes de categorías desde la api con un fragment //
+// // HACIENDOLO CON 2 VARIABLES. UNA PARA CREAR EL ARRAY FILTRANDO CON UN IF:*****************
+// let catSinFiltrar = [data.events.map(iterador => iterador.category)];
+// const catFiltradas = [];
+// // console.log(catSinFiltrar);
+
+// for (let categoria of catSinFiltrar) {
+//   // console.log(categoria);
+//   if (!catFiltradas.includes(categoria)) {
+//     catFiltradas.push(categoria)
+//   }
+// }; 
+
+// console.log(catFiltradas);
+// //NO ENTIENDO POR QUÉ NO FILTRA************************
+
+
+// FRAGMENT PARA CREAR LOS CHECKBOXES DE CATEGORÍAS //
 let fragmentForCategories = document.createDocumentFragment();
 const categoryChecks = document.querySelector("#category-checks");
 
@@ -25,8 +42,8 @@ categorias.forEach((categoria) => {
 
   fragmentForCategories.appendChild(div);
 });
+
 categoryChecks.appendChild(fragmentForCategories);
-// HASTA ACÁ TRAE LOS CHECKBOX DE LA API
 
 //**********************capturando checkboxs *********************************** */
 
@@ -42,6 +59,9 @@ function categoriasFiltradas() {
   const eventosFiltrados = data.events.filter(evento => inputsChequeados.includes(evento.category))
   console.log(eventosFiltrados);
 
+  // function filterArrayByArray(arrayString, arrayObject){
+  //   return arrayString.length === 0 ? arrayObject : arrayObject.filter(elemento => arrayString.includes(elemento.category))
+  // }
 
   // MOSTRANDO CONTENIDO A PARTIR DEL FILTRO DE CHECKBOX CAPTURADO***
 
@@ -75,7 +95,6 @@ function categoriasFiltradas() {
     });
   }
 }
-
 
 //**********************capturando el BUSCADOR - buscador PROPIAMENTE DICHO *********************************** */
 
@@ -132,10 +151,8 @@ function actualizarCardsHtml(eventosFiltrados) {
   });
 }
 
-//MAIN CARDS DE EVENTOS.
-let fragment = document.createDocumentFragment();
-let contenedor = document.getElementById('cards-container');
 
+//MAIN CARDS DE EVENTOS. quizá debería hacerlo función para traerlo en los if de checkbox:
 mostrarAllCards();
 
 
@@ -172,13 +189,3 @@ function mostrarAllCards() {
 // URL SEARCH PARAMS
 
 const id = new URLSearchParams(location.search).get("id")
-
-})
-.catch(error => console.error("Se produjo el siguiente error: " + error))
-
-
-
-
-
-
-

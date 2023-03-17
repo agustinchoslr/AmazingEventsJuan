@@ -1,5 +1,6 @@
 const id = new URLSearchParams(location.search).get("id")
-
+fetch('https://mindhub-xj03.onrender.com/api/amazing').then( response => response.json()).then(data => {
+  console.log(data.events)
 const detalle = data.events.find(elemento => elemento._id == id)
 // console.log(detalle)
 
@@ -37,5 +38,5 @@ function createCard(detalle) {
 }
 contenedorDetalles.appendChild(fragmentDetalles);
 
-
+});
 

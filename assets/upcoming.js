@@ -1,70 +1,11 @@
-// - Capturando elemntos del DOM e insertando HTML con bucle (Fragment)
-
-let contenedor = document.getElementById('cards-container');
-let fragment = document.createDocumentFragment()
-const fechaReferencia = new Date(data.currentDate)
-// URL SEARCH PARAMS
-
-const id = new URLSearchParams(location.search).get("id")
-//fin url search params
-
-// console.log(data.events);
-// console.log(fechaReferencia);
-
-mostrarPastEvents();
-
-function mostrarPastEvents() {
-  for (let evento of data.events) {
-    if (fechaReferencia < Date.parse(evento.date)) {
-      let firstDiv = document.createElement('div')
-      firstDiv.classList.add('m-1')
-      firstDiv.innerHTML = `
-     <div class="card" style="width: 15rem;">
-       <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
-       <div class="card-body">
-         <div class="text-center">
-           <h5 class="card-title">${evento.name}</h5>
-           <p class="card-text">${evento.description}</p>
-         </div>
-         <div class="d-flex justify-content-end mt-4">
-           <a href="./details.html" class="btn btn-primary justify-content-end">Details</a>
-         </div>
-       </div>
-     </div>
-     </div>
-   `;
-      fragment.appendChild(firstDiv)
-    }
-  }
-
-
-  contenedor.appendChild(fragment)
-}
-
-
-
-// console.log(data.events);
+fetch('https://mindhub-xj03.onrender.com/api/amazing').then( response => response.json()).then(data => {
+  console.log(data.events)
 
 //aprendiendo método new Set y Array.from (autodidácticamente)
 const categorias = Array.from(new Set(data.events.map(iterador => iterador.category)));
 
-// // HACIENDOLO CON 2 VARIABLES. UNA PARA CREAR EL ARRAY FILTRANDO CON UN IF:*****************
-// let catSinFiltrar = [data.events.map(iterador => iterador.category)];
-// const catFiltradas = [];
-// // console.log(catSinFiltrar);
 
-// for (let categoria of catSinFiltrar) {
-//   // console.log(categoria);
-//   if (!catFiltradas.includes(categoria)) {
-//     catFiltradas.push(categoria)
-//   }
-// }; 
-
-// console.log(catFiltradas);
-// //NO ENTIENDO POR QUÉ NO FILTRA************************
-
-
-// FRAGMENT PARA CREAR LOS CHECKBOXES DE CATEGORÍAS //
+// Creando Checkboxes de categorías desde la api con un fragment //
 let fragmentForCategories = document.createDocumentFragment();
 const categoryChecks = document.querySelector("#category-checks");
 
@@ -87,6 +28,7 @@ categorias.forEach((categoria) => {
 });
 
 categoryChecks.appendChild(fragmentForCategories);
+// HASTA ACÁ TRAE LOS CHECKBOX DE LA API
 
 //**********************capturando checkboxs *********************************** */
 
@@ -102,13 +44,9 @@ function categoriasFiltradas() {
   const eventosFiltrados = data.events.filter(evento => inputsChequeados.includes(evento.category))
   console.log(eventosFiltrados);
 
-  // function filterArrayByArray(arrayString, arrayObject){
-  //   return arrayString.length === 0 ? arrayObject : arrayObject.filter(elemento => arrayString.includes(elemento.category))
-  // }
+   // MOSTRANDO CONTENIDO A PARTIR DEL FILTRO DE CHECKBOX CAPTURADO***
 
-  // MOSTRANDO CONTENIDO A PARTIR DEL FILTRO DE CHECKBOX CAPTURADO***
-
-  if (eventosFiltrados.length === 0) {
+   if (eventosFiltrados.length === 0) {
     const cardsContainer = document.getElementById("cards-container");
     cardsContainer.innerHTML = "";
     console.log("No hay filtros seleccionados en los checkboxes");
@@ -141,6 +79,8 @@ function categoriasFiltradas() {
     });
   }
 }
+
+
 //**********************capturando el BUSCADOR - buscador PROPIAMENTE DICHO *********************************** */
 
 
@@ -158,9 +98,6 @@ searchInput.addEventListener("input", function () {
 
 
 });
-
-
-
 
 //**********************PARA CREAR CARDS A PARTIR DEL BUSCADOR *********************************** */
 
@@ -198,4 +135,60 @@ function actualizarCardsHtml(eventosFiltrados) {
 }
 });
 }
+
+// - Capturando elemntos del DOM e insertando HTML con bucle (Fragment)
+
+let contenedor = document.getElementById('cards-container');
+let fragment = document.createDocumentFragment()
+const fechaReferencia = new Date(data.currentDate)
+
+
+mostrarPastEvents();
+
+function mostrarPastEvents() {
+  for (let evento of data.events) {
+    if (fechaReferencia < Date.parse(evento.date)) {
+      let firstDiv = document.createElement('div')
+      firstDiv.classList.add('m-1')
+      firstDiv.innerHTML = `
+     <div class="card" style="width: 15rem;">
+       <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
+       <div class="card-body">
+         <div class="text-center">
+           <h5 class="card-title">${evento.name}</h5>
+           <p class="card-text">${evento.description}</p>
+         </div>
+         <div class="d-flex justify-content-end mt-4">
+           <a href="./details.html" class="btn btn-primary justify-content-end">Details</a>
+         </div>
+       </div>
+     </div>
+     </div>
+   `;
+      fragment.appendChild(firstDiv)
+    }
+  }
+
+
+  contenedor.appendChild(fragment)
+}
+
+// URL SEARCH PARAMS
+
+const id = new URLSearchParams(location.search).get("id")
+//fin url search params
+
+
+
+})
+.catch(error => console.error("Se produjo el siguiente error: " + error))
+
+
+
+
+
+
+ 
+
+
 
